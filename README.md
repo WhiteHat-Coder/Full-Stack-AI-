@@ -27,7 +27,7 @@ The repository now contains a dependency-free static learning-site foundation de
 
 The README description above is background context only. The tutorial transcript remains the source of truth for lesson content.
 
-### Sending transcripts
+<!-- ### Sending transcripts
 
 Send transcripts one batch at a time. Five to twenty minutes of material is a useful batch size. Use this format:
 
@@ -41,4 +41,4 @@ TRANSCRIPT:
 Paste the exact transcript here.
 ```
 
-Keep batches in order. Include code exactly as shown in the tutorial, and write `FINAL BATCH: YES` when the last batch has been sent. Full guidance is in [.github/TRANSCRIPT_INTAKE.md](.github/TRANSCRIPT_INTAKE.md).
+Keep batches in order. Include code exactly as shown in the tutorial, and write `FINAL BATCH: YES` when the last batch has been sent. Full guidance is in [.github/TRANSCRIPT_INTAKE.md](.github/TRANSCRIPT_INTAKE.md). -->
