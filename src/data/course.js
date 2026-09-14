@@ -132,6 +132,127 @@ window.course = {
                 { label: 'Course slides and project resources', path: './pdf/section1/Lesson2/Full-Stack+AI+Engineer.pdf' },
                 { label: 'Code files', path: './pdf/section1/Lesson2/Code_files.zip' }
             ]
+        },
+        {
+            id: 'section-2-lesson-1',
+            section: 'Section 2',
+            type: 'Lesson 1 · Python programming basics',
+            title: 'Your first week with Python',
+            summary: 'A seven-day introduction to Python, from development setup and control flow to data structures, file handling, and a practical project.',
+            objectives: [
+                'Describe the topics covered during the first week of Python programming.',
+                'Recognize how control flow, functions, modules, data structures, strings, and file handling fit together.',
+                'Identify the role of Pythonic code and project work in consolidating the week’s learning.'
+            ],
+            concepts: [
+                {
+                    title: 'A foundation week',
+                    body: 'The first week builds a practical Python foundation in a deliberate sequence: begin with the language and development setup, then move through the core techniques used to write useful programs.'
+                },
+                {
+                    title: 'Core programming building blocks',
+                    body: 'The week introduces control flow, functions, modules, lists, tuples, dictionaries, sets, and strings. Together, these topics provide the tools for expressing logic, organizing code, and working with common kinds of data.'
+                },
+                {
+                    title: 'Working with real program input',
+                    body: 'File handling extends Python programs beyond the immediate runtime by allowing them to read and write data. Pythonic code and project work then bring the week’s ideas together in a practical context.'
+                }
+            ],
+            roadmap: [
+                { name: 'Day 1', detail: 'Introduction to Python and development setup.' },
+                { name: 'Day 2', detail: 'Control flow in Python.' },
+                { name: 'Day 3', detail: 'Functions and modules.' },
+                { name: 'Day 4', detail: 'Data structures: lists, tuples, dictionaries, and sets.' },
+                { name: 'Day 5', detail: 'Working with strings.' },
+                { name: 'Day 6', detail: 'File handling.' },
+                { name: 'Day 7', detail: 'Pythonic code and project work.' }
+            ],
+            takeaways: [
+                'The first week moves from setup and language fundamentals toward practical programming work.',
+                'Python’s core data structures and string operations prepare you to represent and transform information.',
+                'The week ends by applying the techniques together through Pythonic code and a project.'
+            ],
+            check: {
+                question: 'Which topic sequence best matches the first week of Python programming?',
+                answer: 'Introduction and setup → control flow → functions and modules → data structures → strings → file handling → Pythonic code and project work.'
+            }
+        },
+        {
+            id: 'section-2-lesson-2',
+            section: 'Section 2',
+            type: 'Lesson 2 · Day 1',
+            title: 'Python, development setup, and your first exercises',
+            summary: 'Understand why Python is widely used in AI, prepare a coding environment, and practice basic syntax, variables, and data types through two small scripts.',
+            objectives: [
+                'Explain why Python is a practical language for AI, machine learning, data work, and automation.',
+                'Set up Python, Jupyter Notebook, Visual Studio Code, the Python extension, and a selected interpreter.',
+                'Use comments, indentation, variables, and common Python data types in simple programs.',
+                'Create and run scripts that print messages and manipulate values of different data types.'
+            ],
+            concepts: [
+                {
+                    title: 'Why Python for AI',
+                    body: 'Python combines readable syntax with a broad ecosystem and an active community. NumPy and pandas support numerical and tabular data work; scikit-learn supports machine learning; TensorFlow and PyTorch support deep learning; Matplotlib supports visualization; and NLTK, spaCy, and Transformers support natural language processing. Python is also well suited to automation and scripting.'
+                },
+                {
+                    title: 'A practical coding environment',
+                    body: 'The setup uses Python from python.org, Jupyter Notebook for interactive coding and data exploration, and Visual Studio Code for editing and running scripts. Install the Python extension in VS Code and select the installed Python interpreter so that scripts execute with the intended environment. Run the same small test in each tool to confirm that they are using the interpreter you expect.',
+                    example: {
+                        language: 'Python',
+                        code: 'print("Hello, AI world!")',
+                        result: 'Hello, AI world!',
+                        usage: 'A quick installation and interpreter check.'
+                    }
+                },
+                {
+                    title: 'Python syntax and variables',
+                    body: 'Single-line comments begin with #, while triple-quoted strings can span multiple lines. Indentation defines code blocks instead of braces. Variables are created by assigning values and do not require an explicit type declaration because Python is dynamically typed. A variable can later refer to a value of another type, although clear naming makes programs easier to understand.',
+                    example: {
+                        language: 'Python',
+                        code: 'name = "Alice"\nage = 25\nprint(f"{name} is {age} years old")',
+                        result: 'Alice is 25 years old',
+                        usage: 'Store values once and reuse them in messages, calculations, or model inputs.'
+                    }
+                },
+                {
+                    title: 'Common data types',
+                    body: 'Integers represent whole numbers, floats represent decimal numbers, and strings represent text inside quotes. Lists are ordered and mutable collections, tuples are ordered and immutable collections, dictionaries store key-value pairs, and booleans represent True or False values used in logical operations. Choose a type based on whether the data needs ordering, mutation, named lookup, or a yes/no state.',
+                    example: {
+                        language: 'Python',
+                        code: 'scores = [80, 92]\ncoordinates = (10, 20)\nperson = {"name": "Alice", "role": "engineer"}\nis_student = True\n\nscores.append(95)\nprint(scores)\nprint(person["name"])',
+                        result: '[80, 92, 95] followed by Alice',
+                        usage: 'Represent batches of values, fixed coordinates, named records, and logical conditions.'
+                    }
+                },
+                {
+                    title: 'Two first exercises',
+                    body: 'The first exercise creates a Python script that prints a message such as Hello, AI world. The second defines an integer, float, string, list, tuple, dictionary, and boolean, then practices string concatenation, appending an item to a list, and accessing a dictionary value by key. Start with the smallest working script, run it, and change one value at a time so you can connect each edit to its output.',
+                    example: {
+                        language: 'Python',
+                        code: 'string_variable = "AI"\nlist_variable = [1, 2, 3]\ndictionary_variable = {"name": "Alice", "role": "engineer"}\n\nlist_variable.append(4)\nprint(string_variable + " bootcamp")\nprint(list_variable)\nprint(dictionary_variable["role"])',
+                        result: 'AI bootcamp, [1, 2, 3, 4], and engineer',
+                        usage: 'Practice mutation, concatenation, and key-based lookup before moving to larger programs.'
+                    }
+                }
+            ],
+            roadmap: [
+                { name: 'Orient', detail: 'Place Python in the AI workflow and identify the libraries used for data, machine learning, deep learning, visualization, and language tasks.' },
+                { name: 'Install Python', detail: 'Download Python from python.org and confirm the installation by opening the Python prompt and printing a message.' },
+                { name: 'Prepare the tools', detail: 'Install Jupyter with pip install Jupyter, launch it with jupyter notebook, and configure the Python extension and interpreter in Visual Studio Code.' },
+                { name: 'Learn the essentials', detail: 'Practice comments, indentation, variables, integers, floats, strings, lists, tuples, dictionaries, and booleans.' },
+                { name: 'Build and run', detail: 'Write a message-printing script, then create a second script that prints and manipulates values of several data types.' }
+            ],
+            takeaways: [
+                'Python’s readability, libraries, and community make it a strong general-purpose language for AI development.',
+                'Jupyter is useful for interactive exploration, while Visual Studio Code supports script editing, autocomplete, syntax highlighting, and debugging.',
+                'Python variables are assigned values directly, and indentation determines the structure of code blocks.',
+                'The first exercises connect data-type definitions to operations such as concatenating strings, appending to lists, and reading dictionary values.'
+            ],
+            clarification: 'Installation screens, available Python versions, and the exact command used to start Python can vary by operating system. Use the current official Python installer, confirm that the interpreter is available in your terminal, and select that same interpreter in your editor.',
+            check: {
+                question: 'Which statement correctly matches the Python data types introduced in this lesson?',
+                answer: 'A list is ordered and mutable, a tuple is ordered and immutable, a dictionary stores key-value pairs, and a boolean is either True or False.'
+            }
         }
     ]
 };

@@ -64,11 +64,18 @@ function renderList(items) {
     return items.map((item) => `<li>${item}</li>`).join('');
 }
 
+function renderConceptExample(example) {
+    if (!example) return '';
+    const result = example.result ? `<p class="example-result"><strong>Expected result:</strong> ${example.result}</p>` : '';
+    const usage = example.usage ? `<p class="example-usage"><strong>Used for:</strong> ${example.usage}</p>` : '';
+    return `<div class="concept-example"><span class="example-label">${example.language || 'Example'}</span><pre><code>${example.code}</code></pre>${result}${usage}</div>`;
+}
+
 function renderLesson(section) {
     const concepts = section.concepts.map((concept) => `
         <article class="concept-block">
             <h3>${concept.title}</h3>
-            <p>${concept.body}</p>
+            <p>${concept.body}</p>${renderConceptExample(concept.example)}
         </article>`).join('');
     const roadmap = section.roadmap.map((stage, index) => `
         <li class="roadmap-item"><span class="roadmap-number">${String(index + 1).padStart(2, '0')}</span><div><strong>${stage.name}</strong><span>${stage.detail}</span></div></li>`).join('');

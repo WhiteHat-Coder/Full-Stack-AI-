@@ -500,11 +500,12 @@ code {
 .concept-grid {
     display: grid;
     gap: 18px;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
 }
 
 .concept-block {
     border-left: 3px solid var(--coral);
+    min-width: 0;
     padding-left: 16px;
 }
 
@@ -516,6 +517,41 @@ code {
 .concept-block p {
     color: var(--muted);
     margin: 0;
+}
+
+.concept-example {
+    background: var(--paper-deep);
+    border-left: 3px solid var(--teal);
+    margin-top: 16px;
+    min-width: 0;
+    padding: 14px 16px;
+}
+
+.example-label {
+    color: var(--teal);
+    display: block;
+    font: 700 .68rem ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.concept-example pre {
+    margin: 9px 0;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.concept-example code {
+    color: var(--ink);
+    font-size: .84rem;
+    line-height: 1.6;
+}
+
+.example-result,
+.example-usage {
+    font-size: .84rem;
+    margin: 7px 0 0 !important;
 }
 
 .roadmap {

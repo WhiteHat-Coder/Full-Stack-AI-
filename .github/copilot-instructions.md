@@ -15,6 +15,10 @@ Inspect the relevant files in `.github/` and the skills in `.github/skills/`. Re
 - Present clarifications as normal explanations or clearly labeled **Clarification** notes when useful to learning.
 - Never present an invented explanation as something the tutor said.
 - Add new sections as structured data so navigation, search, and progress tracking continue to work.
+- Expand every transcript lesson into a friendly, teachable explanation rather than reproducing the transcript as a block of text. For each major topic, explain what it is, why it matters, how it is used, and include a small practical example when the concept supports one.
+- Add useful learner context such as comparisons, expected output, common mistakes, or a short practice prompt when it improves understanding. Keep examples copyable, identify their language, and keep them proportional to the transcript topic.
+- Preserve the transcript's technical claims and explicit code exactly where applicable. New examples, terminology, or explanations must be clearly treated as **Clarification** or normal instructional context; never imply that added material was stated by the tutor.
+- Organize lessons in a learning progression: prerequisite or purpose, core idea, concrete example, practical usage, and a quick check or exercise. Prefer plain language and define unfamiliar terms before relying on them.
 
 ## UI and platform rules
 
