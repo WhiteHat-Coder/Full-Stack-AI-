@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#132238">
+    <meta name="description" content="An interactive learning guide for the Full-Stack AI Engineer course.">
+    <title>Full-Stack AI Engineer | Learning Guide</title>
+    <link rel="stylesheet" href="./src/styles.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <a class="brand" href="./" aria-label="Full-Stack AI Engineer home">
+            <span class="brand-mark" aria-hidden="true">AI</span>
+            <span><strong>Full-Stack AI</strong><small>Learning guide</small></span>
+        </a>
+        <div class="header-actions">
+            <label class="search-box" for="search-input">
+                <span aria-hidden="true">⌕</span>
+                <input id="search-input" type="search" placeholder="Search the guide" autocomplete="off">
+                <kbd>/</kbd>
+            </label>
+            <button class="icon-button" id="theme-toggle" type="button" aria-label="Toggle color theme">◐</button>
+        </div>
+    </header>
+
+    <div class="app-shell">
+        <aside class="sidebar" aria-label="Course navigation">
+            <div class="sidebar-intro">
+                <p class="eyebrow">Course map</p>
+                <h1>Build the whole stack.</h1>
+                <p>Transcript-backed notes, examples, and checks for each stage of the AI engineering journey.</p>
+            </div>
+            <nav id="course-nav" class="course-nav"></nav>
+            <div class="progress-card" aria-live="polite">
+                <div class="progress-heading"><span>Course progress</span><strong id="progress-label">0%</strong></div>
+                <div class="progress-track"><span id="progress-bar"></span></div>
+                <p id="progress-detail">No sections completed yet</p>
+            </div>
+        </aside>
+
+        <main id="main-content" class="main-content" tabindex="-1">
+            <div class="content-wrap">
+                <div class="breadcrumb"><span>Learning guide</span><span aria-hidden="true">/</span><span
+                        id="breadcrumb-current">Welcome</span></div>
+                <section id="welcome-view" class="welcome-panel">
+                    <p class="eyebrow">Ready for your transcripts</p>
+                    <h2>Your AI engineering reference, built as you learn.</h2>
+                    <p class="lede">This guide is prepared to turn each transcript batch into a focused lesson: clear
+                        concepts, faithful examples, useful comparisons, and a small check for understanding.</p>
+                    <div class="welcome-grid">
+                        <article><span class="feature-number">01</span>
+                            <h3>Learn in sequence</h3>
+                            <p>Lessons will follow the concepts in the source material, not arbitrary timestamps.</p>
+                        </article>
+                        <article><span class="feature-number">02</span>
+                            <h3>Review quickly</h3>
+                            <p>Search, section summaries, code examples, and progress markers make revision fast.</p>
+                        </article>
+                        <article><span class="feature-number">03</span>
+                            <h3>Keep the source clear</h3>
+                            <p>Tutorial facts, clarifications, and additional context will always be labeled separately.
+                            </p>
+                        </article>
+                    </div>
+                    <div class="callout callout-note"><strong>Next step</strong><span>Send the first transcript batch
+                            using the format in <code>.github/TRANSCRIPT_INTAKE.md</code>.</span></div>
+                </section>
+                <section id="lesson-view" hidden></section>
+                <section id="search-view" hidden></section>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="./src/app.js"></script>
+</body>
+
+</html>

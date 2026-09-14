@@ -20,3 +20,25 @@ Next, you’ll step into the world of MLOps (Machine Learning Operations) — th
 Finally, you’ll dive into Generative AI (GenAI) and Large Language Models (LLMs). You’ll master prompt engineering, tokenization, fine-tuning, retrieval-augmented generation (RAG), and AI agent frameworks like LangChain and CrewAI. You’ll build real LLM applications using OpenAI GPT, Claude, and Gemini APIs, culminating in a capstone project where you develop your own AI chatbot or content generator.
 
 By the end of this course, you’ll have the full technical stack to become a Full-Stack AI Engineer — a professional who understands data science, machine learning, deep learning, MLOps, and Generative AI end-to-end. Whether you’re starting your AI career or scaling into advanced engineering roles, this course equips you with the skills, tools, and portfolio to build the future of Artificial Intelligence.
+
+## Learning website
+
+The repository now contains a dependency-free static learning-site foundation designed for GitHub Pages. It includes a responsive course shell, client-side search, local progress tracking, theme preference, and documentation for turning transcript batches into lessons.
+
+The README description above is background context only. The tutorial transcript remains the source of truth for lesson content.
+
+### Sending transcripts
+
+Send transcripts one batch at a time. Five to twenty minutes of material is a useful batch size. Use this format:
+
+```text
+BATCH: 01
+TITLE: Name of the lesson or video chapter
+SOURCE: Course/video name or URL (optional)
+TIMESTAMPS: 00:00-12:40 (optional)
+
+TRANSCRIPT:
+Paste the exact transcript here.
+```
+
+Keep batches in order. Include code exactly as shown in the tutorial, and write `FINAL BATCH: YES` when the last batch has been sent. Full guidance is in [.github/TRANSCRIPT_INTAKE.md](.github/TRANSCRIPT_INTAKE.md).
