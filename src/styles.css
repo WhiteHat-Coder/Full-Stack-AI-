@@ -167,6 +167,55 @@ kbd {
     gap: 4px;
 }
 
+.nav-group {
+    display: grid;
+    gap: 2px;
+}
+
+.nav-group-toggle {
+    align-items: center;
+    background: none;
+    border: 0;
+    color: var(--ink);
+    display: flex;
+    gap: 9px;
+    padding: 10px 8px;
+    text-align: left;
+    width: 100%;
+}
+
+.nav-group-toggle span:not(.nav-chevron),
+.nav-group-toggle strong,
+.nav-group-toggle small {
+    display: block;
+}
+
+.nav-group-toggle strong {
+    font-size: .86rem;
+}
+
+.nav-group-toggle small {
+    color: var(--muted);
+    font-size: .72rem;
+    font-weight: 400;
+}
+
+.nav-chevron {
+    color: var(--teal);
+    font: 1.4rem/1 ui-sans-serif, system-ui, sans-serif;
+    transition: transform .2s ease;
+}
+
+.nav-group-toggle[aria-expanded='true'] .nav-chevron {
+    transform: rotate(90deg);
+}
+
+.nav-lessons {
+    display: grid;
+    gap: 2px;
+    padding-left: 12px;
+}
+
 .nav-item {
     align-items: center;
     background: none;
@@ -178,6 +227,26 @@ kbd {
     padding: 9px 8px;
     text-align: left;
     width: 100%;
+}
+
+.nav-item strong {
+    font-size: .86rem;
+    font-weight: 400;
+}
+
+.nav-item strong,
+.nav-item small {
+    display: block;
+}
+
+.nav-item strong {
+    color: inherit;
+    font-size: .75rem;
+}
+
+.nav-item small {
+    color: inherit;
+    font-size: .88rem;
 }
 
 .nav-item:hover,
@@ -338,6 +407,15 @@ h2 {
     border-left: 4px solid var(--teal);
 }
 
+.callout-clarification {
+    background: #f3eee2;
+    border-left: 4px solid var(--coral);
+}
+
+body[data-theme='dark'] .callout-clarification {
+    background: #3a3028;
+}
+
 body[data-theme='dark'] .callout-note {
     background: #1d3939;
 }
@@ -379,6 +457,133 @@ code {
     font-weight: 700;
     margin-top: 28px;
     padding: 12px 17px;
+}
+
+.lesson-actions {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.lesson-actions .complete-button {
+    margin-top: 18px;
+}
+
+.source-badge {
+    border: 1px solid var(--line);
+    color: var(--muted);
+    font: .75rem ui-sans-serif, system-ui, sans-serif;
+    padding: 7px 10px;
+}
+
+.lesson-section {
+    border-top: 1px solid var(--line);
+    margin-top: 44px;
+    padding-top: 28px;
+}
+
+.lesson-section>h3 {
+    font-size: 1.55rem;
+    margin: 8px 0 18px;
+}
+
+.lesson-section ul {
+    color: var(--muted);
+    padding-left: 22px;
+}
+
+.lesson-section li {
+    margin: 9px 0;
+}
+
+.concept-grid {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.concept-block {
+    border-left: 3px solid var(--coral);
+    padding-left: 16px;
+}
+
+.concept-block h3 {
+    font-size: 1.1rem;
+    margin: 0 0 7px;
+}
+
+.concept-block p {
+    color: var(--muted);
+    margin: 0;
+}
+
+.roadmap {
+    display: grid;
+    gap: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.roadmap-item {
+    align-items: flex-start;
+    display: flex;
+    gap: 15px;
+    padding: 16px 0;
+}
+
+.roadmap-number {
+    color: var(--coral);
+    font: 700 .76rem ui-sans-serif, system-ui, sans-serif;
+    padding-top: 3px;
+}
+
+.roadmap-item strong,
+.roadmap-item span {
+    display: block;
+}
+
+.roadmap-item span {
+    color: var(--muted);
+    font-size: .94rem;
+}
+
+details {
+    border: 1px solid var(--line);
+    margin-top: 18px;
+    padding: 15px 18px;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: 700;
+}
+
+details p,
+.resource-note {
+    color: var(--muted);
+}
+
+.resource-list {
+    display: grid;
+    gap: 8px;
+}
+
+.resource-link {
+    align-items: center;
+    border-bottom: 1px solid var(--line);
+    color: var(--teal);
+    display: flex;
+    font-weight: 700;
+    justify-content: space-between;
+    padding: 12px 0;
+    text-decoration: none;
+}
+
+.resource-link:hover,
+.resource-link:focus-visible {
+    color: var(--coral);
 }
 
 .result-item {
@@ -452,6 +657,10 @@ code {
     .welcome-grid {
         grid-template-columns: 1fr;
         margin-top: 34px;
+    }
+
+    .concept-grid {
+        grid-template-columns: 1fr;
     }
 
     .welcome-grid article {

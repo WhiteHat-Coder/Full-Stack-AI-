@@ -1,4 +1,4 @@
-import { course } from './data/course.js';
+const { course } = window;
 
 const progressKey = 'full-stack-ai-learning-progress';
 const themeKey = 'full-stack-ai-theme';
@@ -31,12 +31,64 @@ function renderNav() {
         updateProgress();
         return;
     }
-    nav.innerHTML = course.sections.map((section) => `
-    <button class="nav-item ${progress[section.id] === 'completed' ? 'is-complete' : ''}" data-section="${section.id}" type="button">
-      <span class="nav-status" aria-hidden="true"></span><span>${section.title}</span>
-    </button>`).join('');
+    const groups = course.sections.reduce((grouped, section) => {
+        const lessons = grouped.get(section.section) || [];
+        lessons.push(section);
+        grouped.set(section.section, lessons);
+        return grouped;
+    }, new Map());
+    nav.innerHTML = [...groups.entries()].map(([sectionName, lessons], index) => `
+    <div class="nav-group">
+        <button class="nav-group-toggle" type="button" aria-expanded="true" aria-controls="nav-lessons-${index}">
+            <span class="nav-chevron" aria-hidden="true">›</span>
+            <span><strong>${sectionName}</strong><small>${lessons.length} lesson${lessons.length === 1 ? '' : 's'}</small></span>
+        </button>
+        <div class="nav-lessons" id="nav-lessons-${index}">
+            ${lessons.map((section) => `
+            <button class="nav-item ${progress[section.id] === 'completed' ? 'is-complete' : ''}" data-section="${section.id}" type="button">
+                <span class="nav-status" aria-hidden="true"></span><span><strong>${section.type || section.title}</strong></span>
+            </button>`).join('')}
+        </div>
+    </div>`).join('');
+    nav.querySelectorAll('.nav-group-toggle').forEach((toggle) => toggle.addEventListener('click', () => {
+        const lessons = document.querySelector(`#${toggle.getAttribute('aria-controls')}`);
+        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!isExpanded));
+        lessons.hidden = isExpanded;
+    }));
     nav.querySelectorAll('[data-section]').forEach((button) => button.addEventListener('click', () => showLesson(button.dataset.section)));
     updateProgress();
+}
+
+function renderList(items) {
+    return items.map((item) => `<li>${item}</li>`).join('');
+}
+
+function renderLesson(section) {
+    const concepts = section.concepts.map((concept) => `
+        <article class="concept-block">
+            <h3>${concept.title}</h3>
+            <p>${concept.body}</p>
+        </article>`).join('');
+    const roadmap = section.roadmap.map((stage, index) => `
+        <li class="roadmap-item"><span class="roadmap-number">${String(index + 1).padStart(2, '0')}</span><div><strong>${stage.name}</strong><span>${stage.detail}</span></div></li>`).join('');
+    const resources = (section.resources || []).map((resource) => `<a class="resource-link" href="${resource.path}" target="_blank" rel="noopener">${resource.label}<span aria-hidden="true">↗</span></a>`).join('');
+    const resourcesSection = resources ? `<div class="lesson-section"><p class="eyebrow">Lesson resources</p><h3>Resources for this lecture</h3><p class="resource-note">${section.resourceIntro || 'These companion files came from the Lesson attachment.'}</p><div class="resource-list">${resources}</div></div>` : '';
+    const clarification = section.clarification ? `<div class="callout callout-clarification"><strong>Clarification</strong><span>${section.clarification}</span></div>` : '';
+    return `<article class="lesson">
+        <p class="eyebrow">${section.section} · ${section.source}</p>
+        <h2>${section.title}</h2>
+        <p class="lede">${section.summary}</p>
+        <div class="lesson-actions"><button class="complete-button" type="button" id="complete-button">${progress[section.id] === 'completed' ? 'Completed' : 'Mark section complete'}</button><span class="source-badge">From the course</span></div>
+        <div class="lesson-section"><h3>Learning objectives</h3><ul>${renderList(section.objectives)}</ul></div>
+        <div class="lesson-section"><p class="eyebrow">From Tutorial</p><h3>What this course is building toward</h3><div class="concept-grid">${concepts}</div></div>
+        <div class="lesson-section"><h3>The course roadmap</h3><ol class="roadmap">${roadmap}</ol></div>
+        <div class="callout callout-note"><strong>Remember</strong><span>The course is framed as a practical journey: build, train, deploy, automate, monitor, and scale real-world AI systems.</span></div>
+        ${clarification}
+        <div class="lesson-section"><p class="eyebrow">Quick check</p><h3>${section.check.question}</h3><details><summary>Reveal the answer</summary><p>${section.check.answer}</p></details></div>
+        <div class="lesson-section"><p class="eyebrow">Review</p><h3>Important points</h3><ul>${renderList(section.takeaways)}</ul></div>
+        ${resourcesSection}
+    </article>`;
 }
 
 function showLesson(id) {
@@ -45,7 +97,7 @@ function showLesson(id) {
     welcomeView.hidden = true;
     searchView.hidden = true;
     lessonView.hidden = false;
-    lessonView.innerHTML = `<article class="lesson"><p class="eyebrow">${section.type || 'Lesson'}</p><h2>${section.title}</h2><p class="lede">${section.summary || ''}</p><div class="callout callout-note"><strong>Content status</strong><span>This lesson is ready for transcript-backed content.</span></div><button class="complete-button" type="button" id="complete-button">${progress[id] === 'completed' ? 'Completed' : 'Mark section complete'}</button></article>`;
+    lessonView.innerHTML = renderLesson(section);
     document.querySelector('#complete-button').addEventListener('click', () => {
         progress[id] = progress[id] === 'completed' ? 'in-progress' : 'completed';
         saveProgress();
@@ -87,3 +139,4 @@ document.querySelector('#theme-toggle').addEventListener('click', () => {
 
 document.body.dataset.theme = localStorage.getItem(themeKey) || 'light';
 renderNav();
+if (course.sections.length) showLesson(course.sections[0].id);
