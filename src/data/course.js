@@ -8,7 +8,6 @@ window.course = {
             type: 'Lesson 1 · Introduction',
             title: 'The full-stack AI engineering journey',
             summary: 'An orientation to the 15-week, project-driven path from Python foundations to production-ready AI systems.',
-            source: 'From Tutorial',
             objectives: [
                 'Describe the journey from Python foundations through data science, machine learning, deep learning, MLOps, and generative AI.',
                 'Recognize the practical work included in the course: building, training, deploying, monitoring, and scaling AI systems.',
@@ -37,7 +36,7 @@ window.course = {
             ],
             takeaways: [
                 'The course aims to develop production-ready AI engineering capability, not only theoretical familiarity.',
-                'The transcript states that the program includes more than 15 projects and a custom generative AI application.',
+                'The program includes more than 15 projects and a custom generative AI application.',
                 'The named tools include Python, NumPy, pandas, scikit-learn, TensorFlow, PyTorch, Docker, Git, MLflow, and LangChain.'
             ],
             check: {
@@ -57,7 +56,6 @@ window.course = {
             type: 'Lesson 2 · AI foundations',
             title: 'Artificial intelligence: concepts, methods, and applications',
             summary: 'A broad map of artificial intelligence, from machine learning and neural networks to responsible deployment and emerging AI systems.',
-            source: 'From Tutorial',
             objectives: [
                 'Explain the relationship between artificial intelligence, machine learning, deep learning, and generative AI.',
                 'Compare supervised, unsupervised, and reinforcement learning.',
@@ -88,7 +86,7 @@ window.course = {
                 },
                 {
                     title: 'Data and features determine results',
-                    body: 'The tutorial emphasizes high-quality, clean, diverse, balanced training data. Feature engineering analyzes raw data, transforms it into meaningful representations, and selects useful variables. Big data is described through volume, velocity, variety, and veracity.'
+                    body: 'High-quality, clean, diverse, balanced training data supports effective learning. Feature engineering analyzes raw data, transforms it into meaningful representations, and selects useful variables. Big data is described through volume, velocity, variety, and veracity.'
                 },
                 {
                     title: 'Generalization and optimization',
@@ -124,7 +122,7 @@ window.course = {
                 'Narrow AI is effective at specialized tasks, while artificial general intelligence remains a theoretical goal for human-level capability across domains.',
                 'Important emerging directions include multimodal AI, neuromorphic computing, quantum machine learning, and human-AI collaboration.'
             ],
-            clarification: 'The transcript is an introductory survey, so each topic here will receive deeper lessons later. The definitions and examples above are organized from the supplied transcript; they are not intended to replace implementation-focused lessons.',
+            clarification: 'This is an introductory survey. Each topic will receive deeper lessons later, while this overview provides the vocabulary and map needed to place those lessons in context.',
             check: {
                 question: 'A model is trained with labeled examples of housing features and prices. Which learning paradigm is being used?',
                 answer: 'Supervised learning, because the training examples pair inputs with known target outputs.'
@@ -138,5 +136,4 @@ window.course = {
     ]
 };
 
-// Transcript batches will be added here as structured lessons.
-// Keep source facts, clarifications, and additional context explicitly labeled.
+// Add future lessons as structured data and keep explanations accurate and learner-focused.

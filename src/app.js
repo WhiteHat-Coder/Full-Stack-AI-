@@ -22,12 +22,12 @@ function updateProgress() {
     document.querySelector('#progress-bar').style.width = `${percentage}%`;
     document.querySelector('#progress-detail').textContent = total
         ? `${completed} of ${total} sections completed`
-        : 'Lessons will appear as transcripts are added';
+        : 'Lessons will appear as the course grows';
 }
 
 function renderNav() {
     if (!course.sections.length) {
-        nav.innerHTML = '<p class="empty-nav">No lessons yet. Your first transcript will create the course map.</p>';
+        nav.innerHTML = '<p class="empty-nav">No lessons are available yet.</p>';
         updateProgress();
         return;
     }
@@ -76,12 +76,12 @@ function renderLesson(section) {
     const resourcesSection = resources ? `<div class="lesson-section"><p class="eyebrow">Lesson resources</p><h3>Resources for this lecture</h3><p class="resource-note">${section.resourceIntro || 'These companion files came from the Lesson attachment.'}</p><div class="resource-list">${resources}</div></div>` : '';
     const clarification = section.clarification ? `<div class="callout callout-clarification"><strong>Clarification</strong><span>${section.clarification}</span></div>` : '';
     return `<article class="lesson">
-        <p class="eyebrow">${section.section} · ${section.source}</p>
+        <p class="eyebrow">${section.section} · Course lesson</p>
         <h2>${section.title}</h2>
         <p class="lede">${section.summary}</p>
-        <div class="lesson-actions"><button class="complete-button" type="button" id="complete-button">${progress[section.id] === 'completed' ? 'Completed' : 'Mark section complete'}</button><span class="source-badge">From the course</span></div>
+        <div class="lesson-actions"><button class="complete-button" type="button" id="complete-button">${progress[section.id] === 'completed' ? 'Completed' : 'Mark section complete'}</button><span class="source-badge">Course lesson</span></div>
         <div class="lesson-section"><h3>Learning objectives</h3><ul>${renderList(section.objectives)}</ul></div>
-        <div class="lesson-section"><p class="eyebrow">From Tutorial</p><h3>What this course is building toward</h3><div class="concept-grid">${concepts}</div></div>
+        <div class="lesson-section"><p class="eyebrow">Core concepts</p><h3>What this course is building toward</h3><div class="concept-grid">${concepts}</div></div>
         <div class="lesson-section"><h3>The course roadmap</h3><ol class="roadmap">${roadmap}</ol></div>
         <div class="callout callout-note"><strong>Remember</strong><span>The course is framed as a practical journey: build, train, deploy, automate, monitor, and scale real-world AI systems.</span></div>
         ${clarification}
@@ -120,7 +120,7 @@ function searchLessons(query) {
     welcomeView.hidden = true;
     lessonView.hidden = true;
     searchView.hidden = false;
-    searchView.innerHTML = `<div class="search-results"><p class="eyebrow">Search</p><h2>Results for “${query.replaceAll('<', '&lt;')}”</h2>${results.length ? results.map((result) => `<button class="result-item" data-section="${result.id}" type="button"><strong>${result.title}</strong><span>${result.summary || 'Open lesson'}</span></button>`).join('') : '<p class="empty-state">No matching lessons yet. Try another term or add more transcript batches.</p>'}</div>`;
+    searchView.innerHTML = `<div class="search-results"><p class="eyebrow">Search</p><h2>Results for “${query.replaceAll('<', '&lt;')}”</h2>${results.length ? results.map((result) => `<button class="result-item" data-section="${result.id}" type="button"><strong>${result.title}</strong><span>${result.summary || 'Open lesson'}</span></button>`).join('') : '<p class="empty-state">No matching lessons yet. Try another term.</p>'}</div>`;
     searchView.querySelectorAll('[data-section]').forEach((button) => button.addEventListener('click', () => showLesson(button.dataset.section)));
 }
 

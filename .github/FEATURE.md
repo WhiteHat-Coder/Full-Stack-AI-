@@ -8,7 +8,7 @@
 
 ## Learning experience
 
-The site will turn each transcript batch into a lesson with a clear explanation, source labels, examples, code, important points, common mistakes, a quick check when appropriate, and a compact summary.
+The site turns supplied learning material into lessons with clear explanations, examples, code, important points, common mistakes, quick checks when appropriate, and compact summaries. The learner-facing experience never describes how the lessons were produced.
 
 ## Planned features
 

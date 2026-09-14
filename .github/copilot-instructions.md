@@ -1,6 +1,6 @@
 # Copilot instructions
 
-This repository is a static, transcript-backed learning website for the Full-Stack AI Engineer course. The tutorial transcript is the primary source of truth for learning content.
+This repository is a static learning website for the Full-Stack AI Engineer course. Tutorial transcripts are private authoring sources and the primary accuracy reference, but learners must see polished course content only.
 
 ## Before changing the project
 
@@ -10,7 +10,9 @@ Inspect the relevant files in `.github/` and the skills in `.github/skills/`. Re
 
 - Learning content lives in `src/data/course.js`.
 - Preserve tutorial code and claims accurately.
-- Clearly label **From Tutorial**, **Clarification**, and **Additional Context**.
+- Keep source distinctions in authoring data and internal documentation; do not expose transcript-production language to learners.
+- Never show phrases such as **Transcript-backed**, **From Tutorial**, **supplied transcript**, or **generated from a transcript** in the public UI or learner-facing lesson content.
+- Present clarifications as normal explanations or clearly labeled **Clarification** notes when useful to learning.
 - Never present an invented explanation as something the tutor said.
 - Add new sections as structured data so navigation, search, and progress tracking continue to work.
 

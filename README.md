@@ -23,9 +23,11 @@ By the end of this course, you’ll have the full technical stack to become a Fu
 
 ## Learning website
 
-The repository now contains a dependency-free static learning-site foundation designed for GitHub Pages. It includes a responsive course shell, client-side search, local progress tracking, theme preference, and documentation for turning transcript batches into lessons.
+The repository contains a dependency-free static learning site designed for GitHub Pages. It includes a responsive course shell, client-side search, local progress tracking, theme preference, and structured course lessons.
 
-The README description above is background context only. The tutorial transcript remains the source of truth for lesson content.
+## Content rule
+
+The original tutorial material is used privately as the source for building accurate lessons. Learners must see polished course content only. Never expose transcript-production language in the website, including phrases such as `transcript-backed`, `from tutorial`, `supplied transcript`, `transcript batch`, or explanations that a lesson was generated from a transcript. Keep source-processing notes in `.github/` documentation only.
 
 <!-- ### Sending transcripts
 
